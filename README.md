@@ -20,4 +20,4 @@ Just go to [https://simonstu.github.io/](https://simonstu.github.io/) to see the
 * corrected the issues listed by jshint
 
 # Grunt
-Used grunt (see _package.json_ and _Gruntfile.js_) to check the js-files with _jshint_ and minimize them with _uglify_
+Used grunt (see _package.json_ and _Gruntfile.js_) to check the js-files with _jshint_ and minimize them with _uglify_ as well as compressing images with _imagemin_
