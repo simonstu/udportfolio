@@ -17,3 +17,7 @@ Just go to [https://simonstu.github.io/](https://simonstu.github.io/) to see the
 * optimized changePizzaSizes function
 ** replaced _determineDx function_ with a simple switch to get a percentage value for the new pizza width
 ** removed _document.querySelectorAll(".randomPizzaContainer")_ out of the for-loop
+* corrected the issues listed by jshint
+
+# Grunt
+Used grunt (see _package.json_ and _Gruntfile.js_) to check the js-files with _jshint_ and minimize them with _uglify_
