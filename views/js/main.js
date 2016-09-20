@@ -421,32 +421,6 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldwidth = elem.offsetWidth;
-    var windowwidth = document.querySelector("#randomPizzas").offsetWidth;
-    var oldsize = oldwidth / windowwidth;
-
-    // Changes the slider value to a percent width
-    function sizeSwitcher (size) {
-      switch(size) {
-        case "1":
-          return 0.25;
-        case "2":
-          return 0.3333;
-        case "3":
-          return 0.5;
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-    }
-
-    var newsize = sizeSwitcher(size);
-    var dx = (newsize - oldsize) * windowwidth;
-
-    return dx;
-  }
-
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     // Changes the slider value to a percent width
@@ -462,8 +436,11 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
     }
+    // calculated new width for the pizza containers
     var newwidth = sizeSwitcher(size) + "%";
+    // collects all pizza container that need to be resized
     var pizzas = document.querySelectorAll(".randomPizzaContainer");
+    // changes the pizza containers to new width
     for (var i = 0; i < pizzas.length; i++) {
       pizzas[i].style.width = newwidth;
     }
@@ -523,12 +500,14 @@ function updatePositions() {
       visibleItems.push(items[i]);
     }
   }
+  // calculates all necessary position values to update pizza items
   var bodyScrollTop = document.body.scrollTop / 1250;
   var phases = [Math.sin(bodyScrollTop+0),
     Math.sin(bodyScrollTop+1),
     Math.sin(bodyScrollTop+2),
     Math.sin(bodyScrollTop+3),
     Math.sin(bodyScrollTop+4)];
+  // assign the new position values to the visible pizza items
   for (var i = 0, y = 0; i < visibleItems.length; i++) {
     visibleItems[i].style.left = visibleItems[i].basicLeft + 100 * phases[y] + 'px';
     y++;
